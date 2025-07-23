@@ -1,0 +1,10 @@
+[package]
+name = "violetbeacon_deptrack_testproject_rust_cargo"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+futures-core = { version = "=0.3.6" }
+smallvec = { version = "=1.6.1" }
+tokio = { version = "=1.31.0", features = ["bytes", "fs", "full", "libc", "signal", "sync"] }
+idna = { version = "=0.5.0" }

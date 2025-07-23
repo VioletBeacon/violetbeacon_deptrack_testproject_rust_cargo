@@ -1,0 +1,38 @@
+violetbeacon_deptrack_testproject_rust_cargo v0.1.0 (/violetbeacon_deptrack_testproject_rust_cargo)
+├── futures-core v0.3.6
+├── idna v0.5.0
+│   ├── unicode-bidi v0.3.18
+│   └── unicode-normalization v0.1.24
+│       └── tinyvec v1.9.0
+│           └── tinyvec_macros v0.1.1
+├── smallvec v1.6.1
+└── tokio v1.31.0
+    ├── bytes v1.10.1
+    ├── libc v0.2.174
+    ├── mio v0.8.11
+    │   └── libc v0.2.174
+    ├── num_cpus v1.17.0
+    │   └── libc v0.2.174
+    ├── parking_lot v0.12.4
+    │   ├── lock_api v0.4.13
+    │   │   └── scopeguard v1.2.0
+    │   │   [build-dependencies]
+    │   │   └── autocfg v1.5.0
+    │   └── parking_lot_core v0.9.11
+    │       ├── cfg-if v1.0.1
+    │       ├── libc v0.2.174
+    │       └── smallvec v1.6.1
+    ├── pin-project-lite v0.2.16
+    ├── signal-hook-registry v1.4.5
+    │   └── libc v0.2.174
+    ├── socket2 v0.5.10
+    │   └── libc v0.2.174
+    └── tokio-macros v2.1.0 (proc-macro)
+        ├── proc-macro2 v1.0.95
+        │   └── unicode-ident v1.0.18
+        ├── quote v1.0.40
+        │   └── proc-macro2 v1.0.95 (*)
+        └── syn v2.0.104
+            ├── proc-macro2 v1.0.95 (*)
+            ├── quote v1.0.40 (*)
+            └── unicode-ident v1.0.18
