@@ -35,6 +35,7 @@ tokio-macros
 unicode-bidi
 unicode-ident
 unicode-normalization
+violetbeacon_deptrack_testproject_rust_cargo
 wasi
 windows_aarch64_gnullvm
 windows_aarch64_msvc

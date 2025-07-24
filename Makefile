@@ -1,12 +1,22 @@
 ARTEFACTS := artefacts
 
+# Run each step in a separate invocation so that I can repeatedly call `clean`
 .PHONY: all
-all: setup \
-     clean ${ARTEFACTS}/cargo_lock_list.txt \
-     clean build \
-     clean cyclonedx \
-     clean audit \
-     clean tree
+all:
+	make setup
+	make clean
+	make ${ARTEFACTS}/cargo_lock_list.txt
+	make clean
+	make build
+	make clean
+	make cyclonedx-allfeatures
+	make clean
+	make cyclonedx
+	make clean
+	make audit
+	make clean
+	make tree
+	make clean
 
 .PHONY: setup
 setup:
@@ -27,15 +37,31 @@ clean:
 	cargo cache --remove-dir all
 	rm -rf target
 
-.PHONY:
-cyclonedx:
+.PHONY: cyclonedx-allfeatures
+cyclonedx-allfeatures: CDXFILE=cyclonedx-allfeatures.cdx.json
+cyclonedx-allfeatures:
 	cargo cyclonedx -f json --spec-version 1.5 --all --all-features \
-		--target all 2>&1 |tee ${ARTEFACTS}/cyclonedx.log
+		--target all 2>&1 |tee ${ARTEFACTS}/cyclonedx-allfeatures.log
+	mv violetbeacon_deptrack_testproject_rust_cargo.cdx.json ${CDXFILE}
+	sed -n 's/^\s*Downloaded \([^ ].*\) .*/\1/p' ${ARTEFACTS}/cyclonedx-allfeatures.log \
+		| sort | uniq >${ARTEFACTS}/cyclonedx-allfeatures_downloads.txt
+	jq '.["components"][]["name"]' ${CDXFILE} \
+		| sed 's/"\([^"]*\)"/\1/' >${ARTEFACTS}/cyclonedx-allfeatures_components.tmp
+	jq '.["metadata"]["component"]["name"]' ${CDXFILE} \
+		| sed 's/"\([^"]*\)"/\1/' >>${ARTEFACTS}/cyclonedx-allfeatures_components.tmp
+	cat ${ARTEFACTS}/cyclonedx-allfeatures_components.tmp | sort | uniq >${ARTEFACTS}/cyclonedx-allfeatures_components.txt
+	rm ${ARTEFACTS}/cyclonedx-allfeatures_components.tmp
+
+.PHONY: cyclonedx
+cyclonedx: CDXFILE=cyclonedx.cdx.json
+cyclonedx:
+	cargo cyclonedx -f json --spec-version 1.5 --all --target all 2>&1 |tee ${ARTEFACTS}/cyclonedx.log
+	mv violetbeacon_deptrack_testproject_rust_cargo.cdx.json ${CDXFILE}
 	sed -n 's/^\s*Downloaded \([^ ].*\) .*/\1/p' ${ARTEFACTS}/cyclonedx.log \
 		| sort | uniq >${ARTEFACTS}/cyclonedx_downloads.txt
-	jq '.["components"][]["name"]' violetbeacon_deptrack_testproject_rust_cargo.cdx.json \
+	jq '.["components"][]["name"]' ${CDXFILE} \
 		| sed 's/"\([^"]*\)"/\1/' >${ARTEFACTS}/cyclonedx_components.tmp
-	jq '.["metadata"]["component"]["name"]' violetbeacon_deptrack_testproject_rust_cargo.cdx.json \
+	jq '.["metadata"]["component"]["name"]' ${CDXFILE} \
 		| sed 's/"\([^"]*\)"/\1/' >>${ARTEFACTS}/cyclonedx_components.tmp
 	cat ${ARTEFACTS}/cyclonedx_components.tmp | sort | uniq >${ARTEFACTS}/cyclonedx_components.txt
 	rm ${ARTEFACTS}/cyclonedx_components.tmp

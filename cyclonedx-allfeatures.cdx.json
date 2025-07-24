@@ -2,9 +2,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "version": 1,
-  "serialNumber": "urn:uuid:32989fbf-edbe-4aee-bcd3-3e7986e4588c",
+  "serialNumber": "urn:uuid:921107c4-66a8-4895-9414-c87a64084e52",
   "metadata": {
-    "timestamp": "2025-07-23T06:25:10.497726404Z",
+    "timestamp": "2025-07-24T01:33:26.237063339Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -14,7 +14,7 @@
     ],
     "component": {
       "type": "application",
-      "bom-ref": "path+file:///violetbeacon_deptrack_testproject_rust_cargo#0.1.0",
+      "bom-ref": "path+file:///mnt/warmstorage/kris/repos/software/violetbeacon/violetbeacon_deptrack_testproject_rust_cargo#0.1.0",
       "name": "violetbeacon_deptrack_testproject_rust_cargo",
       "version": "0.1.0",
       "scope": "required",
@@ -22,7 +22,7 @@
       "components": [
         {
           "type": "application",
-          "bom-ref": "path+file:///violetbeacon_deptrack_testproject_rust_cargo#0.1.0 bin-target-0",
+          "bom-ref": "path+file:///mnt/warmstorage/kris/repos/software/violetbeacon/violetbeacon_deptrack_testproject_rust_cargo#0.1.0 bin-target-0",
           "name": "violetbeacon_deptrack_testproject_rust_cargo",
           "version": "0.1.0",
           "purl": "pkg:cargo/violetbeacon_deptrack_testproject_rust_cargo@0.1.0?download_url=file://.#src/main.rs"
@@ -1711,7 +1711,7 @@
   ],
   "dependencies": [
     {
-      "ref": "path+file:///violetbeacon_deptrack_testproject_rust_cargo#0.1.0",
+      "ref": "path+file:///mnt/warmstorage/kris/repos/software/violetbeacon/violetbeacon_deptrack_testproject_rust_cargo#0.1.0",
       "dependsOn": [
         "registry+https://github.com/rust-lang/crates.io-index#futures-core@0.3.6",
         "registry+https://github.com/rust-lang/crates.io-index#idna@0.5.0",

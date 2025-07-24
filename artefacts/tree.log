@@ -1,4 +1,32 @@
-violetbeacon_deptrack_testproject_rust_cargo v0.1.0 (/violetbeacon_deptrack_testproject_rust_cargo)
+    Updating crates.io index
+ Downloading crates ...
+  Downloaded futures-core v0.3.6
+  Downloaded parking_lot v0.12.4
+  Downloaded num_cpus v1.17.0
+  Downloaded pin-project-lite v0.2.16
+  Downloaded lock_api v0.4.13
+  Downloaded parking_lot_core v0.9.11
+  Downloaded cfg-if v1.0.1
+  Downloaded tinyvec_macros v0.1.1
+  Downloaded bytes v1.10.1
+  Downloaded scopeguard v1.2.0
+  Downloaded autocfg v1.5.0
+  Downloaded tokio-macros v2.1.0
+  Downloaded signal-hook-registry v1.4.5
+  Downloaded unicode-ident v1.0.18
+  Downloaded quote v1.0.40
+  Downloaded smallvec v1.6.1
+  Downloaded tinyvec v1.9.0
+  Downloaded unicode-bidi v0.3.18
+  Downloaded socket2 v0.5.10
+  Downloaded mio v0.8.11
+  Downloaded proc-macro2 v1.0.95
+  Downloaded unicode-normalization v0.1.24
+  Downloaded idna v0.5.0
+  Downloaded syn v2.0.104
+  Downloaded tokio v1.31.0
+  Downloaded libc v0.2.174
+violetbeacon_deptrack_testproject_rust_cargo v0.1.0 (/mnt/warmstorage/kris/repos/software/violetbeacon/violetbeacon_deptrack_testproject_rust_cargo)
 ├── futures-core v0.3.6
 ├── idna v0.5.0
 │   ├── unicode-bidi v0.3.18
